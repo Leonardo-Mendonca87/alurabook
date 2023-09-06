@@ -1,0 +1,163 @@
+.cabeçalho__menu-hanburguer{
+    width: 24px;/*largura*/
+    height: 24px;/*altura*/
+    background-image: url("../img/Menu.svg");
+    display: inline-block;/*permite alterar altura e largura*/
+    background-repeat: no-repeat;/*não deixa repetir a imagem*/
+    background-position: center;
+}
+.container-botao:checked ~ .container__rotulo > .cabeçalho__menu-hanburguer{
+    background-image: url("../img/MenuAberto.svg");
+}
+.container-botao:checked ~ .container__rotulo{
+    background:  var(--azul-degrade);
+}
+.cabeçalho {
+    background-color: var(--branco-do-cabeçalho);
+    display: flex;/*transforma o cabeçalho em flax conteiner, e seus filhos flax aintem*/
+    justify-content: space-between; /*coloca cada conteiner em um canto */
+    align-items: center;
+    position: relative;/* Desbloqueia a posição "direita, esquerda "*/
+}
+
+.container{
+    display: flex;
+    align-items: center;
+
+}
+.container_imagem{
+    padding: 1em;
+
+}
+.lista_menu{
+    display: none;
+    position: absolute;/*E o position absolute, ele permite que
+    você movimente o seu elemento de acordo com outro que veio ante
+    ou que é o pai, que esteja a position diferente de static  */
+    top: 100%;
+    width: 60vw;/*aumentou a largura do menu hamburguer. VW pega a largura da tela*/
+}
+.container-botao:checked ~ .lista_menu{ 
+    /*se o container botão tiver o checked, 
+    ele vai procurar outro que venha depois dele, 
+    que tenha a classe lista menu e vai botar display block nele*/
+    display: block;
+}
+.lista-menu__titulo, .lista-menu__item{
+    background-color:var(--branco-do-cabeçalho) ;
+    padding: 1em;
+    
+
+}
+.lista-menu__titulo{
+    color: var(--laranja);
+    font-weight: 700;
+
+}
+.lista-menu__link{
+    background: VAR(--azul-degrade);
+    -webkit-background-clip: text; /*para funcionar em outros navegadores*/
+    -webkit-text-fill-color: transparent;/*para funcionar em outros navegadores*/
+     background-clip: text;/*ele prente a cor no texto*/
+     text-transform: uppercase;
+     
+}
+.container-botao{
+    display: none;
+}
+.container__titulo{
+    display: none;
+}
+.opcao{
+    display: none;
+}
+
+.container__texto{
+    display: none;
+}
+
+@media screen and (min-width: 1024px) {
+    
+    .container__titulo,
+    .container__titulo--negrito{
+        font-family: var(--fonte-secundaria);
+        font-size: 30px;
+       
+    }
+    .container__titulo{
+        font-weight: 400;
+        display: block;
+        margin: 0 0.5em;
+        
+    }
+    .container__titulo--negrito{
+        font-weight: 700;
+    }
+    .opcao{
+        display: flex;
+    }
+    .opcao__item {
+        padding: 1em;
+        text-transform: uppercase;
+
+    }
+    .opcao__link{
+        color: var(--preto);
+        text-decoration: none;
+    }
+    .container__imagem-transparente{
+        display: none;
+    }
+    .cabeçalho__menu-hanburguer{
+        display: none;
+    }
+    .container{
+        margin: 0 0 0 1em;
+    }
+    .opcao__botao:checked ~ .lista_menu{
+        display: block;
+        width: auto;
+
+    }
+    .opcao__botao{
+        display: none;
+    }
+    .opcao__botao:checked ~ .opcao__rotulo > .opcao__item{
+        background-image: var(--azul-degrade);
+        color: var(--branco-do-cabeçalho);
+    }
+    .lista-menu__item:hover {
+        background: var(--azul-degrade);
+            
+    }    
+    .lista-menu__item:hover > .lista-menu__link {
+        -webkit-text-fill-color: var(--branco-do-cabeçalho);
+        text-decoration: none;
+    }
+}
+
+/* hover e par quando passa o mouse em cima */
+
+@media screen and (min-width: 1728px){
+
+    .container__link{
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(--preto);
+    }
+    .cabeçalho{
+        padding: 1em;
+    }
+    .opcao{
+        margin-right: auto;
+    }
+    .container__texto{
+        display: block;
+    }
+   
+
+}
+    
+
+    
